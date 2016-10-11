@@ -1,25 +1,29 @@
-﻿using System;
+﻿using Part1.ApplicationLogic.Interfaces;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace Part1.Api.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class ValuesController : ApiController
     {
+        private readonly IValueService _valueService;
+
+        public ValuesController(IValueService valueService)
+        {
+            _valueService = valueService;
+        }
+
         // GET api/values
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _valueService.GetValues();
         }
 
         // GET api/values/5
         public string Get(int id)
         {
-            return "value";
+            return _valueService.GetValue(id);
         }
 
         // POST api/values
