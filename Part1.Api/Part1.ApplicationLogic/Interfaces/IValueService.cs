@@ -6,6 +6,8 @@ namespace Part1.ApplicationLogic.Interfaces
     {
         IEnumerable<string> GetValues();
 
-        string GetValue(int id);
+        int GetValue(string id);
+
+        string AddValue(int value);
     }
 }

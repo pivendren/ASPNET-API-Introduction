@@ -21,14 +21,15 @@ namespace Part1.Api.Controllers
         }
 
         // GET api/values/5
-        public string Get(int id)
+        public int Get(string id)
         {
             return _valueService.GetValue(id);
         }
 
         // POST api/values
-        public void Post([FromBody]string value)
+        public string Post([FromBody]int value)
         {
+            return _valueService.AddValue(value);
         }
 
         // PUT api/values/5
